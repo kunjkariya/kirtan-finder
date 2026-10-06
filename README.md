@@ -1,13 +1,31 @@
 # Kirtan Finder (कीर्तन फाइंडर)
 
-[![Flutter CI](https://github.com/kunjkariya/kirtan-finder/actions/workflows/ci.yml/badge.svg)](https://github.com/kunjkariya/kirtan-finder/actions/workflows/ci.yml)
+[![Latest Release](https://img.shields.io/github/v/release/kunjkariya/kirtan-finder?color=blue&logo=github)](https://github.com/kunjkariya/kirtan-finder/releases/latest)
+[![Download APK](https://img.shields.io/badge/Download%20APK-v1.0.0%20(65%20MB)-34D399?logo=android&logoColor=white)](https://github.com/kunjkariya/kirtan-finder/releases/download/v1.0.0/kirtan-finder-v1.0.0.apk)
 [![Flutter](https://img.shields.io/badge/Flutter-3.0%2B-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.0%2B-0175C2?logo=dart&logoColor=white)](https://dart.dev)
-[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20iPadOS%20%7C%20Android-4E4E4E)](https://github.com/kunjkariya/kirtan-finder)
+[![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20iPadOS-4E4E4E)](https://github.com/kunjkariya/kirtan-finder)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/Tests-113%20passed-success)](test/)
 
-**Kirtan Finder** is a high-performance, offline-first mobile and tablet application built with Flutter and SQLite FTS5. It provides instant search and authentic digital reading across all **6,584 sacred Pushtimargiya devotional kirtans** (spanning 4 parts and 409 chapters) from the canonical Pushtimarg literature.
+**Kirtan Finder** is a high-performance, offline-first mobile and tablet application built with Flutter and SQLite FTS5. It provides instant search and authentic digital reading across all **6,584 sacred Pushtimargiya devotional kirtans** (spanning 4 parts and 409 chapters) from canonical Pushtimarg literature.
+
+---
+
+## 📥 Ready-to-Install APK Download
+
+A pre-built, production-signed Android APK is available directly from GitHub Releases:
+
+| Release Asset | Version | File Size | Target Platform | SHA-256 Checksum |
+|---|---|---|---|---|
+| [**`kirtan-finder-v1.0.0.apk`**](https://github.com/kunjkariya/kirtan-finder/releases/download/v1.0.0/kirtan-finder-v1.0.0.apk) | `v1.0.0` (build 1) | **64.89 MB** | Android 7.0+ (API 24 to 36) | `91fe9cf8d0b3707e1a1e9beeff43b4540852b2e74b9aa6cc773e7d725d090533` |
+
+### Quick Installation Guide (Android)
+
+1. **Download**: Tap the [**Direct APK Download Link**](https://github.com/kunjkariya/kirtan-finder/releases/download/v1.0.0/kirtan-finder-v1.0.0.apk) on your Android device (Samsung Galaxy S23, Google Pixel, OnePlus, Xiaomi, etc.).
+2. **Open**: Tap the downloaded file in your browser or Files app.
+3. **Install**: If prompted, allow *“Install unknown apps”* for your browser, then tap **Install**.
+4. **Offline Use**: The complete 35 MB pre-indexed database is bundled inside the APK. **No internet connection is required after installation.**
 
 ---
 
@@ -41,10 +59,7 @@
 Kirtan Finder adheres to clean architectural principles with strict separation of concerns:
 
 ```
-kirtan_finder/
-├── .github/
-│   └── workflows/
-│       └── ci.yml               # Automated Flutter CI pipeline
+kirtan-finder/
 ├── android/                     # Native Android project configuration
 ├── ios/                         # Native iOS / iPadOS project configuration
 ├── assets/
@@ -72,7 +87,7 @@ kirtan_finder/
 │   │   │   ├── folder_repository.dart
 │   │   │   ├── kirtan_repository.dart
 │   │   │   ├── recent_repository.dart
-│   │   │   └── settings_repository.dart
+│   │   └── settings_repository.dart
 │   │   └── services/
 │   │       └── share_service.dart
 │   └── features/                # UI presentation layer
@@ -86,7 +101,6 @@ kirtan_finder/
 │   ├── final_release_qa_test.dart
 │   ├── reading_experience_test.dart
 │   ├── recent_share_chapter_verse_test.dart
-│   ├── search_n_id_test.dart
 │   └── widget_and_flow_test.dart
 ├── database/                    # Python ETL pipeline & SQLite schema definitions
 │   ├── schema.sql
@@ -115,7 +129,7 @@ The application embeds a pre-compiled, highly indexed SQLite 3 database (`kirtan
 
 ---
 
-## Getting Started
+## Getting Started (Developers)
 
 ### Prerequisites
 
@@ -124,7 +138,7 @@ The application embeds a pre-compiled, highly indexed SQLite 3 database (`kirtan
 - Android Studio / Android SDK (for Android build)
 - Xcode 14+ (for iOS / iPadOS build on macOS)
 
-### Installation
+### Local Setup
 
 1. **Clone the repository**:
    ```bash
@@ -142,7 +156,7 @@ The application embeds a pre-compiled, highly indexed SQLite 3 database (`kirtan
    flutter analyze
    ```
 
-4. **Run the Test Suite**:
+4. **Run the Test Suite (113 tests)**:
    ```bash
    flutter test
    ```
@@ -155,24 +169,17 @@ The application embeds a pre-compiled, highly indexed SQLite 3 database (`kirtan
 
 ---
 
-## Building for Release
+## Building from Source
 
-### Android APK
-
-Build a release APK optimized for Samsung Galaxy S23, modern Android devices, and legacy hardware (API 24+):
+### Android Release APK
 
 ```bash
 flutter build apk --release
 ```
 
-The compiled binary will be generated at:
-```
-build/app/outputs/flutter-apk/app-release.apk
-```
+Output: `build/app/outputs/flutter-apk/app-release.apk`
 
-### iOS / iPadOS
-
-Generate an iOS release bundle:
+### iOS Release Bundle
 
 ```bash
 flutter build ipa --release
